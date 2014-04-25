@@ -5,15 +5,11 @@
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet">
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.default.min.css" rel="stylesheet">
 </head>
-<body data-ng-controller="sampleCtrl">
+<body>
 
-    <h1 data-ng-bind="message"></h1>
-
-    <select kendo-drop-down-list
-            k-options="thingsOptions"
-            data-ng-model="selectedThing"
-            k-on-change="thingsChange(kendoEvent)">
-    </select>
+    <div class="container">
+        <div id="lazyView" data-ui-view></div>
+    </div>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js" data-main="js/main.js"></script>
 </body>

@@ -1,23 +1,40 @@
-define([], function () {
+define(["angular", "states", "oc.lazyLoad", "ui.router"], function (angular, states) {
     "use strict";
-    var app = angular.module('SampleApp', ['kendo.directives'])
-        .controller('sampleCtrl', ['$scope', function ($scope) {
-            $scope.message = "Test";
-            $scope.selectedThing = "";
-            $scope.thingsOptions = {
-                dataSource: {
-                    data: [{ name: "Thing 1", id: 1 },
-                        { name: "Thing 2", id: 2 },
-                        { name: "Thing 3", id: 3 }]
-                },
-                dataTextField: "name",
-                dataValueField: "id",
-                optionLabel: "Select A Thing"
+    return angular.module('SampleApp', ['ui.router', 'oc.lazyLoad', 'kendo.directives'])
+        .factory("loginService", function () {
+            var auth = false;
+            return {
+                auth: auth
             };
-            $scope.thingsChange = function (e) {
-
+        })
+        .controller("loginCtrl", function ($scope, $state, loginService) {
+            $scope.doLogin = function () {
+                loginService.auth = true;
+                $state.go("test");
             };
+        })
+        .config([
+            "$stateProvider", "$locationProvider", "$urlRouterProvider",
+            function ($stateProvider, $locationProvider, $urlRouterProvider) {
+                $urlRouterProvider.otherwise('/login');
+                states.forEach(function (state) {
+                    $stateProvider.state(state.name, state.state);
+                });
+                // Without server side support html5 must be disabled.
+                return $locationProvider.html5Mode(false);
+            }
+        ])
+        .config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
+            $ocLazyLoadProvider.config({
+                asyncLoader: require
+            });
+        }])
+        .run(['$state', '$rootScope', 'loginService', function ($state, $rootScope, loginService) {
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+                if (toState.authenticate && !loginService.auth) {
+                    event.preventDefault();
+                    $state.go("login");
+                }
+            });
         }]);
-
-    return app;
 });
