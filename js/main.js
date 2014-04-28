@@ -1,6 +1,7 @@
 require.config({
     paths: {
         "jquery": "http://code.jquery.com/jquery-1.9.1.min",
+        "bootstrap3": "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min",
         "angular": "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular",
         "kendo": "http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min",
         "angular-kendo": "angular-kendo",
@@ -16,6 +17,9 @@ require.config({
         },
         "jquery": {
             exports: "$"
+        },
+        "bootstrap3": {
+            deps: ["jquery"]
         },
         "moment": {
             exports: "moment"
@@ -42,8 +46,8 @@ require.config({
 });
 
 define([
-    "jquery", "angular", "kendo", "angular-kendo", "app"
-], function ($, angular, kendo, angularkendo, app) {
+    "jquery", "bootstrap3", "angular", "kendo", "angular-kendo", "app"
+], function ($, bootstrap3, angular, kendo, angularkendo, app) {
     "use strict";
     $(document).ready(function () {
         angular.bootstrap(document, ["SampleApp"]);

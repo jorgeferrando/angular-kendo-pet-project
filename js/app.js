@@ -1,6 +1,7 @@
-define(["angular", "states", "oc.lazyLoad", "ui.router"], function (angular, states) {
+define(["angular", "states", "oc.lazyLoad", "ui.router","off-canvas-directive"], function (angular, states, a, b, offCanvasDirective) {
     "use strict";
     return angular.module('SampleApp', ['ui.router', 'oc.lazyLoad', 'kendo.directives'])
+        .directive("drawOffCanvas", offCanvasDirective)
         .factory("loginService", function () {
             var auth = false;
             return {

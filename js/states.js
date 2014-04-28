@@ -1,7 +1,7 @@
 define(["customLazyLoader"], function (lazyLoader) {
     "use strict";
     var states = [], i = 0;
-
+    // #login
     states.push({
         name: "login",
         state: {
@@ -12,17 +12,19 @@ define(["customLazyLoader"], function (lazyLoader) {
         }
     });
 
+    // #finance
+
     states.push({
         name: "test",
         state: {
             url: "/test",
             template: lazyLoader.template,
-            controller: function ($scope, $ocLazyLoad) {
+            controller: function ($scope, $ocLazyLoad, propertyData) {
                 lazyLoader.load($scope, $ocLazyLoad,
-                        'test',
-                        'js/test.js',
-                        'test.html'
-                    );
+                    'test',
+                    'js/test.js',
+                    'test.html'
+                );
             },
             authenticate: true
         }
