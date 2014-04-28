@@ -19,12 +19,12 @@ define(["customLazyLoader"], function (lazyLoader) {
         state: {
             url: "/test",
             template: lazyLoader.template,
-            controller: function ($scope, $ocLazyLoad, propertyData) {
+            controller: function ($scope, $ocLazyLoad) {
                 lazyLoader.load($scope, $ocLazyLoad,
                     'test',
                     'js/test.js',
                     'test.html'
-                );
+                    );
             },
             authenticate: true
         }

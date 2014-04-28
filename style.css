@@ -13,6 +13,7 @@ html, body, .wrapper {
 .container {
     width: 100% !important;
 }
+
 .navbar-toggle {
     float: left;
     margin-left: 10px;
