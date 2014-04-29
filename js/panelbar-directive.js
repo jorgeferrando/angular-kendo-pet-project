@@ -5,7 +5,7 @@ define(["angular"], function (angular) {
         return {
             restrict: 'A',
             replace: true,
-            templateUrl: "panelBar.html",
+            template: "<ul kendo-panel-bar></ul>",
             controller: function ($scope, $element, loginService) {
                 var menuItems = [
 
@@ -21,16 +21,24 @@ define(["angular"], function (angular) {
 
                 ];
 
-                $scope.$watch(function() {
+                $scope.$watch(function () {
                     return !!$element.data("kendoPanelBar") && loginService.auth;
                 }, function (newValue, oldValue) {
                     if (newValue !== oldValue) {
+                        console.log(newValue)
                         if (newValue === true) {
-                            $element.data("kendoPanelBar").append([{
-                                text: "<b>Item 2</b>",
-                                encoded: false,                                 // Allows use of HTML for item text
-                                content: "text"                                 // content within an item
-                            }]);
+                            var panelBar = $element.data("kendoPanelBar");
+                            panelBar.append([
+                                {
+                                    text: "<b>Item 2</b>",
+                                    encoded: false,                                 // Allows use of HTML for item text
+                                    items: [
+                                        {text: "<a href='#/login'>login</a>", encoded: false},
+                                        {text: "<a href='#/test'>test</a>", encoded: false}
+                                    ]                             // content within an item
+                                }
+                            ]);
+                            panelBar._updateClasses();
                         }
                     }
                 });

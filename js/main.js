@@ -7,7 +7,8 @@ require.config({
         "angular-kendo": "angular-kendo",
         "oc.lazyLoad": "ocLazyLoad",
         "customLazyLoader": "customLazyLoader",
-        "ui.router": "ui.router",
+        "ngRoute": "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route",
+        //"ui.router": "https://raw.githubusercontent.com/angular-ui/ui-router/master/release/angular-ui-router.min",
         "moment": "moment",
         "app": "app"
     },
@@ -30,7 +31,7 @@ require.config({
         "angular-kendo": {
             deps: ["angular", "kendo"]
         },
-        "ui.router": {
+        "ngRouter": {
             deps: ["angular"]
         },
         "oc.lazyLoad": {
