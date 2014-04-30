@@ -16,7 +16,7 @@ define([
                 $scope.doLogin = function () {
                     uni24Service.login({}).then(function () {
                         uni24Service.setAuthorized(true);
-                        $location.url("/test");
+                        $location.url("/finance");
                     });
                 };
             })

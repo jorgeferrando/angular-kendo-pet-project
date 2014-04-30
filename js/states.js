@@ -15,15 +15,15 @@ define(["vendor/customLazyLoader"], function (lazyLoader) {
     // #finance
 
     states.push({
-        name: "test",
+        name: "finance",
         state: {
-            url: "/test",
+            url: "/finance",
             template: lazyLoader.template,
             controller: function ($scope, $ocLazyLoad) {
                 lazyLoader.load($scope, $ocLazyLoad,
-                    'test',
-                    'js/modules/test.js',
-                    'partials/test.html'
+                    'finance',
+                    'js/modules/finance/module.js',
+                    'partials/finance/index.html'
                     );
             },
             authenticate: true

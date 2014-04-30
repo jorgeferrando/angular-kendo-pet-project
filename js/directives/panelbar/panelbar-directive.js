@@ -19,7 +19,7 @@ define(["angular"], function (angular) {
                                     if (list[item.CategoryLabel]) {
                                         list[item.CategoryLabel].items.push({
                                             encoded: false,
-                                            text: "<a href='#/test'>" + item.Label + "</a>"
+                                            text: "<a href='#/finance'>" + item.Label + "</a>"
                                         });
                                     } else {
                                         list[item.CategoryLabel] = {};
@@ -30,7 +30,7 @@ define(["angular"], function (angular) {
                                         };
                                         list[item.CategoryLabel].items.push({
                                             encoded: false,
-                                            text: "<a href='#/test'>" + item.Label + "</a>"
+                                            text: "<a href='#/finance'>" + item.Label + "</a>"
                                         });
                                     }
                                 });

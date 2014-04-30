@@ -4,7 +4,7 @@ require.config({
         "jquery": "http://code.jquery.com/jquery-1.9.1.min",
         "bootstrap3": "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min",
         "angular": "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular",
-        "kendo": "http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min",
+        "kendo": "vendor/kendo.all.min",
         "angular-kendo": "vendor/angular-kendo",
         "oc.lazyLoad": "vendor/ocLazyLoad",
         "customLazyLoader": "vendor/customLazyLoader",
