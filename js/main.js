@@ -1,15 +1,16 @@
 require.config({
+    baseurl: "js/",
     paths: {
         "jquery": "http://code.jquery.com/jquery-1.9.1.min",
         "bootstrap3": "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min",
         "angular": "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular",
         "kendo": "http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min",
-        "angular-kendo": "angular-kendo",
-        "oc.lazyLoad": "ocLazyLoad",
-        "customLazyLoader": "customLazyLoader",
+        "angular-kendo": "vendor/angular-kendo",
+        "oc.lazyLoad": "vendor/ocLazyLoad",
+        "customLazyLoader": "vendor/customLazyLoader",
         "ngRoute": "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route",
         //"ui.router": "https://raw.githubusercontent.com/angular-ui/ui-router/master/release/angular-ui-router.min",
-        "moment": "moment",
+        "moment": "vendor/moment",
         "app": "app"
     },
     shim: {
@@ -31,11 +32,11 @@ require.config({
         "angular-kendo": {
             deps: ["angular", "kendo"]
         },
-        "ngRouter": {
+        "ngRoute": {
             deps: ["angular"]
         },
         "oc.lazyLoad": {
-            deps: ["angular", "ui.router"]
+            deps: ["angular", "ngRoute"]
         },
         "customLazyLoader": {
             deps: ["oc.lazyLoad"]

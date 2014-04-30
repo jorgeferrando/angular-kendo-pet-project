@@ -1,19 +1,23 @@
-define(["angular", "ngRoute", "states", "oc.lazyLoad", "off-canvas-directive", "panelbar-directive"],
-    function (angular, ngRoute, states, a, offCanvasDirective, panelBarDirective) {
+define([
+    "angular",
+    "ngRoute",
+    "states",
+    "oc.lazyLoad",
+    "services/uni24service",
+    "directives/offcanvas/offcanvas-directive",
+    "directives/panelbar/panelbar-directive"],
+    function (angular, ngRoute, states, lazyLoad, uni24Service, offCanvasDirective, panelBarDirective) {
         "use strict";
         return angular.module('SampleApp', ['ngRoute', 'oc.lazyLoad', 'kendo.directives'])
             .directive("drawOffCanvas", offCanvasDirective)
             .directive("panelBar", panelBarDirective)
-            .factory("loginService", function () {
-                var auth = false;
-                return {
-                    auth: auth
-                };
-            })
-            .controller("loginCtrl", function ($scope, $location, loginService) {
+            .factory("uni24Service", uni24Service)
+            .controller("loginCtrl", function ($scope, $location, uni24Service) {
                 $scope.doLogin = function () {
-                    loginService.auth = true;
-                    $location.url("/test");
+                    uni24Service.login({}).then(function () {
+                        uni24Service.setAuthorized(true);
+                        $location.url("/test");
+                    });
                 };
             })
             .config([
@@ -32,14 +36,12 @@ define(["angular", "ngRoute", "states", "oc.lazyLoad", "off-canvas-directive", "
                     asyncLoader: require
                 });
             }])
-            .run(['$location', '$rootScope', '$route', 'loginService', function ($location, $rootScope, $route, loginService) {
+            .run(['$location', '$rootScope', '$route', 'uni24Service', function ($location, $rootScope, $route, uni24Service) {
                 $rootScope.$on('$routeChangeStart', function (event, current, previous) {
-                    //console.log("routeChange:", arguments);
-                    if (current.$$route.authenticate && !loginService.auth) {
+                    if (current.$$route.authenticate && !uni24Service.isAuthorized()) {
                         event.preventDefault();
                         $location.url("/login");
                     }
                 });
             }]);
-        ;
     });

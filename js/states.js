@@ -1,4 +1,4 @@
-define(["customLazyLoader"], function (lazyLoader) {
+define(["vendor/customLazyLoader"], function (lazyLoader) {
     "use strict";
     var states = [], i = 0;
     // #login
@@ -6,7 +6,7 @@ define(["customLazyLoader"], function (lazyLoader) {
         name: "login",
         state: {
             url: "/login",
-            templateUrl: "login.html",
+            templateUrl: "partials/login.html",
             controller: "loginCtrl",
             authenticate: false
         }
@@ -22,8 +22,8 @@ define(["customLazyLoader"], function (lazyLoader) {
             controller: function ($scope, $ocLazyLoad) {
                 lazyLoader.load($scope, $ocLazyLoad,
                     'test',
-                    'js/test.js',
-                    'test.html'
+                    'js/modules/test.js',
+                    'partials/test.html'
                     );
             },
             authenticate: true

@@ -1,0 +1,47 @@
+/* hide the horizontal scrollbar */
+html {
+    overflow-x: hidden;
+}
+
+/* make all parent containers 100% height */
+html, body, .wrapper {
+    height: 100%;
+}
+
+/* move the toggle button to the left and give it
+   some breathing room */
+.container {
+    width: 100% !important;
+}
+
+.navbar-toggle {
+    float: left;
+    margin-left: 10px;
+    display:block !important;
+}
+
+/* sidebar */
+.sidebar-offcanvas {
+    -webkit-transition: left .3s ease-in;
+    -most-transition: left .3s ease-in;
+    transition: left .3s ease-in;
+    z-index:1000;
+    left: -15%;
+    width: 15%;
+    position: absolute;
+    top: 50px;
+    height: 94.5%;
+    background-color: #F7F7F7;
+    padding: 0px;
+}
+
+.sidebar-offcanvas.active {
+    left: 0%;
+}
+
+@media screen and (max-width: 767px) {
+    .sidebar-offcanvas {
+        left: -80%;
+        width: 80%;
+    }
+}

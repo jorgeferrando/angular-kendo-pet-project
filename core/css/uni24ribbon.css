@@ -1,0 +1,62 @@
+/*
+ * Default Uni24 Ribbon theme
+ *
+ * Copyright (c) 2012 
+ *   Sveinung Farestveit
+ *   Uni Micro AS
+ *
+ */
+
+.uni24ribbon {
+	font-size: 8pt;		
+	/*background-image: url('../images/uni24ribbonback.png');*/
+	/*background-repeat: repeat-x;	*/
+	/*background-color: #f8fbff;*/
+	text-align: center;	
+	white-space: nowrap;
+	border-bottom: 1px solid #d0d0d0;
+	margin-bottom: 4px;
+	line-height: 1.2;
+}
+
+a.uni24ribbonlink {
+	display: block;
+	text-decoration: none;
+	padding: 3px;		
+}	
+a.uni24ribbonlink:hover {
+	display: block;
+	background-color: #dfe4ef;
+	padding: 3px;
+}
+
+.uni24ribbonfooter {		
+	vertical-align: top;
+	font-size:8px; 
+	color:gray;
+	padding-top: 3px;
+	padding-bottom: 4px;
+	background-image: -moz-linear-gradient(bottom, #eee 0%, #fff 100%);
+	background-image: -ms-linear-gradient(bottom, #eee 0%, #fff 100%);
+	background-image: -webkit-linear-gradient(bottom, #eee 0%, #fff 100%);
+}
+
+.uni24ribboncell, .uni24ribboncellstart {
+	padding: 5px 9px 0px 9px;
+}
+
+.uni24ribboncellstart {
+	border-left: 1px solid #c0c0c0;
+}
+
+#MainModuleViewTabs .ui-tabs-nav {
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+#MainModuleViewTabs .ui-tabs-nav li {
+    display: inline-block;
+    float: none;
+    vertical-align: bottom;
+}

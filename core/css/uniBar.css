@@ -1,0 +1,46 @@
+	
+	.uniBar {
+		border-spacing:0;
+		border-collapse:collapse;
+		text-align: center;
+		font-size: 11px;
+		border-bottom: 1px solid #ccc;
+		white-space: nowrap;
+		line-height: 1em;		
+	}        	
+	.uniBarFirstGroup, .uniBarGroup, .uniBarSubGroup {
+		padding-left: 7px;
+	}        	
+	.uniBarGroup {        		
+		border-left: 1px solid #ccc;
+	}
+	.uniBarFooter {
+		font-size: 9px;
+		color: gray;
+		background-image: -moz-linear-gradient(bottom, #eee 0%, #fff 100%);
+		background-image: -ms-linear-gradient(bottom, #eee 0%, #fff 100%);
+		background-image: -webkit-linear-gradient(bottom, #eee 0%, #fff 100%);        		
+	}
+	.uniBarFooterGroup {
+		padding-top: 3px;
+		padding-bottom: 4px;
+	}
+	.uniBar a:link, .uniBar a:visited
+	 { text-decoration: none; color: #555; }
+	 .uniBar a:hover {
+		background-color: #ddd;
+		border-radius: 5px;
+	 } 
+	.uniBarButton {
+		padding: 5px 8px 1px 5px;
+		text-align: center;
+		display:block;
+		line-height:18px;
+	}
+	.uniBarSmallButton {
+		text-align:left;
+	}
+	
+	.uniBarDisabled {
+		color: #ccc !important;
+	}        	
